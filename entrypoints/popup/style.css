@@ -1,0 +1,168 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #fff;
+}
+
+body {
+  width: 320px;
+  min-height: 120px;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.header {
+  padding: 14px 16px 10px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.header h1 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+}
+
+.header p {
+  font-size: 12px;
+  color: #666;
+  margin-top: 2px;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 16px;
+  background: #fafafa;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.dot.ready    { background: #22c55e; }
+.dot.checking { background: #94a3b8; animation: pulse 1s ease-in-out infinite; }
+.dot.download { background: #f59e0b; animation: pulse 1s ease-in-out infinite; }
+.dot.error    { background: #ef4444; }
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+.status-text {
+  font-size: 12px;
+  color: #444;
+}
+
+.persona {
+  margin: 0;
+  padding: 10px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 8px;
+}
+
+.field-row dt {
+  font-size: 11px;
+  color: #888;
+  text-align: right;
+  padding-top: 1px;
+}
+
+.field-row dd {
+  font-size: 12px;
+  color: #111;
+}
+
+.progress-wrap {
+  height: 3px;
+  background: #e5e7eb;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #2563eb;
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+.body {
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+button#autofill-btn {
+  width: 100%;
+  padding: 9px 16px;
+  background: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+button#autofill-btn:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+button#autofill-btn:disabled {
+  background: #93c5fd;
+  cursor: not-allowed;
+}
+
+.log {
+  font-size: 12px;
+  color: #555;
+  min-height: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.log.success { color: #16a34a; }
+.log.error   { color: #dc2626; }
+
+.spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid #d1d5db;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.hidden { display: none; }
